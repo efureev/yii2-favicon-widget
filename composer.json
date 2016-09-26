@@ -6,6 +6,7 @@
     "favicon",
     "widget"
   ],
+  "version": "1.2.0",
   "type": "yii2-extension",
   "license": "MIT",
   "support": {
