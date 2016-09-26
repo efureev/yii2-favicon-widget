@@ -1,14 +1,14 @@
 Yii 2 Favicon widget
 ====================
-[![License](https://poser.pugx.org/rmrevin/yii2-favicon-widget/license.svg)](https://packagist.org/packages/rmrevin/yii2-favicon-widget)
-[![Latest Stable Version](https://poser.pugx.org/rmrevin/yii2-favicon-widget/v/stable.svg)](https://packagist.org/packages/rmrevin/yii2-favicon-widget)
-[![Latest Unstable Version](https://poser.pugx.org/rmrevin/yii2-favicon-widget/v/unstable.svg)](https://packagist.org/packages/rmrevin/yii2-favicon-widget)
-[![Total Downloads](https://poser.pugx.org/rmrevin/yii2-favicon-widget/downloads.svg)](https://packagist.org/packages/rmrevin/yii2-favicon-widget)
+[![License](https://poser.pugx.org/efureev/yii2-favicon-widget/license.svg)](https://packagist.org/packages/efureev/yii2-favicon-widget)
+[![Latest Stable Version](https://poser.pugx.org/efureev/yii2-favicon-widget/v/stable.svg)](https://packagist.org/packages/efureev/yii2-favicon-widget)
+[![Latest Unstable Version](https://poser.pugx.org/efureev/yii2-favicon-widget/v/unstable.svg)](https://packagist.org/packages/efureev/yii2-favicon-widget)
+[![Total Downloads](https://poser.pugx.org/efureev/yii2-favicon-widget/downloads.svg)](https://packagist.org/packages/efureev/yii2-favicon-widget)
 
 Installation
 ------------
 ```bash
-composer require "rmrevin/yii2-favicon-widget:1.1.*"
+composer require "efureev/yii2-favicon-widget:1.1.*"
 ```
 
 Usage
@@ -19,7 +19,7 @@ In layout view
 <head>
     // ...
     <?php
-    echo \rmrevin\yii\favicon\Favicon::widget([
+    echo \efureev\favicon\Favicon::widget([
         'web' => '@web',
         'webroot' => '@webroot',
         'favicon' => '@webroot/favicon.png',

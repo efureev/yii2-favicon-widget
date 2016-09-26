@@ -1,21 +1,16 @@
 <?php
-/**
- * Favicon.php
- * @author Revin Roman
- * @link https://rmrevin.ru
- */
 
-namespace rmrevin\yii\favicon;
+namespace efureev\favicon;
 
 use Imagine\Image\Box;
-use Imagine\Image\Color;
+use Imagine\Image\Palette\RGB;
 use Imagine\Image\Point;
 use yii\helpers\Url;
 use yii\imagine\Image;
 
 /**
  * Class Favicon
- * @package rmrevin\yii\favicon
+ * @package efureev\favicon
  */
 class Favicon extends \yii\base\Widget
 {
@@ -38,7 +33,7 @@ class Favicon extends \yii\base\Widget
     /** @var string color for ms windows tile background & android theme color */
     public $color = '#2b5797';
 
-    /** @var string|null|Color color for apple icons background fill (null - transparent) */
+    /** @var string|null color for apple icons background fill (null - transparent) */
     public $fillColor;
 
     /** @var bool */
@@ -240,8 +235,10 @@ class Favicon extends \yii\base\Widget
                 ->open($favicon_path)
                 ->resize($resize);
 
+            $palette = new RGB();
+
             Image::getImagine()
-                ->create($canvas, new Color('ffffff', 100))
+                ->create($canvas, $palette->color('ffffff', 100))
                 ->paste($Icon, $point)
                 ->save($file);
         }
@@ -260,11 +257,11 @@ class Favicon extends \yii\base\Widget
         $default = 180;
 
         $Point = new Point(0, 0);
-
+        $palette = new RGB();
         $Color = empty($this->fillColor)
-            ? new Color('ffffff', 100)
+            ? $palette->color('ffffff', 100)
             : (is_string($this->fillColor)
-                ? new Color(str_replace('#', '', $this->fillColor))
+                ? $palette->color(str_replace('#', '', $this->fillColor))
                 : $this->color);
 
         foreach ([57, 60, 72, 76, 114, 120, 144, 152, 180] as $s) {
@@ -346,8 +343,9 @@ class Favicon extends \yii\base\Widget
                 ->open($favicon_path)
                 ->resize($resize);
 
+            $palette = new RGB;
             Image::getImagine()
-                ->create($canvas, new Color('ffffff', 100))
+                ->create($canvas, $palette->color('ffffff', 100))
                 ->paste($Icon, $point)
                 ->save($file);
         }
@@ -438,11 +436,11 @@ class Favicon extends \yii\base\Widget
         $favicon_path = \Yii::getAlias($this->favicon);
 
         if (empty($favicon_path) || !file_exists($favicon_path) || !is_file($favicon_path)) {
-            throw new \yii\base\InvalidConfigException('Favicon file not exists.');
+            throw new \yii\base\InvalidConfigException('Favicon file not exists: '.$favicon_path);
         }
 
         if (!is_readable($favicon_path)) {
-            throw new \yii\base\InvalidConfigException('Favicon file is not readable.');
+            throw new \yii\base\InvalidConfigException('Favicon file is not readable: '.$favicon_path);
         }
 
         $size = @getimagesize($favicon_path);
@@ -475,11 +473,11 @@ class Favicon extends \yii\base\Widget
         $path = \Yii::getAlias($this->webroot);
 
         if (empty($path) || !file_exists($path) || !is_dir($path)) {
-            throw new \yii\base\InvalidConfigException('Web path not exists.');
+            throw new \yii\base\InvalidConfigException('Web path not exists: '.$path);
         }
 
         if (!is_writable($path)) {
-            throw new \yii\base\InvalidConfigException('Web path is not writable.');
+            throw new \yii\base\InvalidConfigException('Web path is not writable: '.$path);
         }
 
         return $path;

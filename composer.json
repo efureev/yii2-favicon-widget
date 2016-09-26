@@ -1,5 +1,5 @@
 {
-  "name": "rmrevin/yii2-favicon-widget",
+  "name": "efureev/yii2-favicon-widget",
   "description": "Favicon widget for Yii2",
   "keywords": [
     "yii",
@@ -8,10 +8,9 @@
   ],
   "type": "yii2-extension",
   "license": "MIT",
-  "minimum-stability": "stable",
   "support": {
-    "issues": "https://github.com/rmrevin/yii2-favicon-widget/issues",
-    "source": "https://github.com/rmrevin/yii2-favicon-widget"
+    "issues": "https://github.com/efureev/yii2-favicon-widget/issues",
+    "source": "https://github.com/efureev/yii2-favicon-widget"
   },
   "authors": [
     {
@@ -20,15 +19,16 @@
       "homepage": "https://rmrevin.com/"
     }
   ],
+  "minimum-stability": "dev",
   "require": {
     "php": ">=5.4.0",
 
-    "yiisoft/yii2": "2.0.*",
-    "yiisoft/yii2-imagine": "2.0.*"
+    "yiisoft/yii2": "~2",
+    "yiisoft/yii2-imagine": "~2"
   },
   "autoload": {
     "psr-4": {
-      "rmrevin\\yii\\favicon\\": ""
+      "efureev\\favicon\\": "src"
     }
   },
   "extra": {
